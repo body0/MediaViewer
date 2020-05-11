@@ -1,0 +1,11 @@
+<div class="root">
+  <div class="header">
+    <span>Multimedia Viewer</span>
+  </div>
+  <div *ngIf="Schema" class="content">
+    <!--  <app-dir [Dir]="{ ulr:dirName, name:dirName, data:Schema.dir[dirName] }" *ngFor="let dirName of (Schema.dir) | getOwnPropery">
+    </app-dir>
+    <app-file [File]="file" *ngFor="let file of (Schema.file)"></app-file> -->
+    <app-dir [Dir]="{ url:'', name:'/', data:Schema }" Open="true"></app-dir>
+  </div>
+</div>

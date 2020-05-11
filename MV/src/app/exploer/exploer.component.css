@@ -1,0 +1,66 @@
+.root {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: rgb(0, 0, 0, .8);
+}
+.top {
+    position: absolute;
+    top: 0;
+    padding: 1rem;
+    background: rgb(0, 0, 0, .8);
+    color: #eee;
+    font-size: 2rem;
+}
+.content {
+    width: calc(100% - 6rem);
+    height: calc(100% - 6rem);
+    padding: 3rem;
+    display: flex;
+}
+.content img, .content video  {
+    width: 100%;
+    max-height: calc(100vh - 6rem);
+    object-fit: contain;
+}
+.splitScreen {
+    position: absolute; 
+    top: 0; 
+    bottom: 0;
+    width: 50%;
+}
+.subSplitScreen {
+    position: absolute; 
+    top: calc(100% - 5rem); 
+    bottom: 0;
+    width: 30%;
+    display: flex;
+}
+.subSplitScreen > span, .subSplitMid > span {
+    /* margin: 0 20%; */
+    margin: 0 auto;
+    color: #eee;
+    font-size: 2rem;
+}
+.subSplitMid {
+    position: absolute; 
+    top: calc(100% - 5rem); 
+    left: 33%;
+    bottom: 0;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+.pointerInput {
+    width: 50%;
+    margin: auto;
+}
+.errText {
+    color: #eee;
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 5rem;
+}

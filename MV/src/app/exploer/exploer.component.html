@@ -1,0 +1,32 @@
+<div class="root" *ngIf="Show">
+  <p *ngIf="_UrlList.length === 0" class="errText">Nothing To Display</p>
+  <p *ngIf="_UrlList.length <= Pointer || 0 > Pointer || Pointer === null" class="errText">Wrong Index</p>
+  <div *ngIf="_UrlList.length !== 0 && _UrlList.length > Pointer  && 0 <= Pointer && Pointer !== null" class="content">
+    <img *ngIf="_UrlList[Pointer].type === MediaType.IMG" [ngStyle]="{scale: _UrlList[Pointer].scale}"
+      [src]="_UrlList[Pointer].url">
+    <video *ngIf="_UrlList[Pointer].type === MediaType.VIDEO" [ngStyle]="{scale: _UrlList[Pointer].scale}"
+      [src]="_UrlList[Pointer].url" autoplay loop></video>
+  </div>
+  <div class="top" style="left: 0;" (click)="Show = false;">
+    <span>{{Pointer}}/{{_UrlList.length}}</span>
+  </div>
+  <div class="splitScreen" style="left: 0;" (click)="shift(-1)"></div>
+  <div class="splitScreen" style="right: 0;" (click)="shift(1)"></div>
+  <div class="subSplitScreen" style="left: 0;" (click)="scale(-.25)">
+    <span>minus</span>
+  </div>
+  <div class="subSplitScreen" style="right: 0; flex-direction: row-reverse" (click)="scale(.25)">
+    <span>plus</span>
+  </div>
+  <div class="subSplitMid">
+    <span *ngIf="!Playing" (click)="play()">play</span>
+    <span *ngIf="Playing" (click)="stop()">stop</span>
+    <input type="number" class="pointerInput" [(ngModel)]="Pointer">
+  </div>
+  <div class="top" style="right: 0;" (click)="Show = false;">
+    <span class="material-icons" *ngIf="Open">
+      clear
+    </span>
+    close
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.content {
+  padding: .5rem 1rem;
+}
+.header {
+    padding: 20px;
+    width: calc(100% -4rem);
+    background-color: #022231;
+    font-size: 2rem;
+    color: #eee;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

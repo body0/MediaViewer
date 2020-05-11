@@ -1,0 +1,24 @@
+<div class="root">
+  <div class="header" (click)="Open = !Open">
+    <span>{{Dir.name}}</span>
+    <span class="material-icons" *ngIf="!Open">
+      expand_more
+    </span>
+    <span class="material-icons" *ngIf="Open">
+      expand_less
+    </span>
+  </div>
+  <div class="control">
+      <button (click)="open()" style="padding: .2rem;">Open</button>
+      <span>Recursive</span>
+      <input type="checkbox" [(ngModel)]="Recursive"> <!-- style="scale:  1.3;" -->
+    </div>
+  <div class="content" *ngIf="Open">
+    <p class="fileCount">File Count: {{Dir.data.file.length}}</p>
+    <span *ngIf="((Dir.data.dir) | getOwnPropery).length === 0" class="noSubDir">No Sub Directory</span>
+    <app-dir [Dir]="{ url:(Dir.url + '/' + dirName), name:dirName, data:Dir.data.dir[dirName] }"
+      *ngFor="let dirName of (Dir.data.dir) | getOwnPropery">
+    </app-dir>
+  </div>
+</div>
+<app-exploer #exp></app-exploer>

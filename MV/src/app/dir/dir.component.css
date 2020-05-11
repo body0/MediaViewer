@@ -1,0 +1,36 @@
+.root{
+    margin: .1rem .1rem .1rem .8rem;
+    padding: .4rem; 
+    border: solid 2px #555;
+}
+.header {
+    display: flex;
+    align-items: center;
+}
+.control {
+    margin-left: .2rem; 
+}
+.control> * {
+    margin: 0 .3rem;
+}
+.content {
+    margin-top: .5rem;
+}
+.fileCount {
+    margin: .3rem 0 0 0;
+    padding: .3rem 0 .3rem .5rem;
+    /* margin-left: 1rem; */
+    /* margin-bottom: .3rem; */
+    width: calc(100% - 1rem);
+    border-top: solid 1px #777;
+}
+.noSubDir {
+    color: #af2727;
+    padding-left: .3rem; 
+}
+/* p {
+    margin: 0;
+}
+.material-icons {
+    margin-bottom: 2px;
+} */

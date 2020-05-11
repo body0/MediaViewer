@@ -1,0 +1,1 @@
+ng build --prod --output-path /home/nykl/Documents/WEB/multiViewer/NODE/app
