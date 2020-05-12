@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, HostListener } from '@angular/core';
 
 enum MediaType {
   IMG,
@@ -57,6 +57,7 @@ export class ExploerComponent implements OnDestroy {
     this.Pointer = 0;
     this._UrlList = parsedUrlList;
   }
+
   // tslint:disable-next-line: variable-name
   _UrlList = [];
   Pointer = 0;
@@ -66,6 +67,33 @@ export class ExploerComponent implements OnDestroy {
   TimerDestructor = null;
   MediaType = MediaType;
 
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (!this.Show) { return; }
+    if (event.code === 'Escape') {
+      this.Show = false;
+    } else if (event.code === 'ArrowRight' || event.code === 'KeyD') {
+      this.shift(1);
+    } else if (event.code === 'ArrowLeft' || event.code === 'KeyA') {
+      this.shift(-1);
+    } else if (event.code === 'KeyE') {
+      this.shift(10);
+    } else if (event.code === 'KeyR') {
+      this.Pointer = 0;
+    } else if (event.code === 'Space') {
+      if (this.Playing) {
+        this.stop();
+      } else {
+        this.play();
+      }
+    } else if (event.code === 'KeyF') {
+      if (this._UrlList[this.Pointer].scale === 1) {
+        this._UrlList[this.Pointer].scale = 100;
+      } else {
+        this._UrlList[this.Pointer].scale = 1;
+      }
+    }
+  }
   constructor() { }
 
   ngOnDestroy() {
