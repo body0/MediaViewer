@@ -62,6 +62,7 @@ export class ExploerComponent implements OnDestroy {
   Pointer = 0;
   Show = false;
   Playing = false;
+  TimerInterval = 2500;
   TimerDestructor = null;
   MediaType = MediaType;
 
@@ -75,13 +76,23 @@ export class ExploerComponent implements OnDestroy {
     const p = (this.Pointer + shift) % this._UrlList.length;
     this.Pointer = (p < 0) ? this._UrlList.length - 1 : p;
   }
+  onMouseWheel(event) {
+    const move = (event.wheelDeltaY > 0) ? -1 : 1;
+    if (event.altKey) {
+      this.scale(move * 0.25);
+    } else if (!event.shiftKey) {
+      this.shift(move);
+    }
+  }
+
   scale(scale: number) {
     this._UrlList[this.Pointer].scale += scale;
   }
+
   play() {
     this.TimerDestructor = window.setInterval(() => {
       this.shift(1);
-    }, 2500);
+    }, this.TimerInterval);
     this.Playing = true;
   }
   stop() {

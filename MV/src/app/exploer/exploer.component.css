@@ -1,30 +1,51 @@
 .root {
     position: absolute;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
+    min-height: 100%;
+    min-width: 100%;
+    /* width: fit-content;
+    height: fit-content; */
+    /* height: 100%;
+    width: 100%; */
 
-    background-color: rgb(0, 0, 0, .8);
+    background-color: rgb(0, 0, 0, .9);
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
 }
 .top {
     position: absolute;
     top: 0;
     padding: 1rem;
-    background: rgb(0, 0, 0, .8);
+    background: rgb(0, 0, 0, .5);
     color: #eee;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+}
+.top .material-icons {
+    color: #eee;
+    font-size: 2.5rem;
 }
 .content {
-    width: calc(100% - 6rem);
-    height: calc(100% - 6rem);
-    padding: 3rem;
+    --scale: 1;
+    /* width: calc(100% *var(--scale) - 6rem);
+    height: calc(100% *var(--scale) - 6rem); */
+    /* width: calc(100vw *var(--scale));
+    height: calc(100vh *var(--scale)); */
+    /* box-sizing: border-box;
+    padding: 3rem; */
     display: flex;
 }
 .content img, .content video  {
     width: 100%;
-    max-height: calc(100vh - 6rem);
+    height: 100%;
+    /* max-height: calc(100vh - 6rem); */
     object-fit: contain;
+    box-sizing: border-box;
+    padding: 3rem;
+    margin: auto;
 }
 .splitScreen {
     position: absolute; 
@@ -38,16 +59,18 @@
     bottom: 0;
     width: 30%;
     display: flex;
+    align-items: baseline;
 }
 .subSplitScreen > span, .subSplitMid > span {
     /* margin: 0 20%; */
     margin: 0 auto;
     color: #eee;
-    font-size: 2rem;
+    font-size: 3rem;
+    background: rgb(0, 0, 0, .5);
 }
 .subSplitMid {
     position: absolute; 
-    top: calc(100% - 5rem); 
+    top: calc(100% - 6rem); 
     left: 33%;
     bottom: 0;
     width: 30%;
@@ -55,6 +78,9 @@
     flex-direction: column;
 }
 .pointerInput {
+    width: 5em;
+}
+.timeInput {
     width: 50%;
     margin: auto;
 }
@@ -63,4 +89,18 @@
     font-size: 5rem;
     text-align: center;
     margin-top: 5rem;
+}
+input {
+    background: rgb(0, 0, 0, .5);
+    border: none;
+    border-bottom: solid #eee 2px;
+    font-size: 1.3rem;
+    color: #eee;
+    padding: 3px 8px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+input:focus {
+    outline: none;
+    border-bottom: solid #eee 4px;
 }
